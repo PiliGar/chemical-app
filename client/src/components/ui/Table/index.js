@@ -16,23 +16,23 @@ export const TypesTable = withRouter(({ history, title, query }) => {
   const numberOfSameType = (type) =>
     query.filter((e) => e[2][1] === type).length;
 
+  const [filter, setFilter] = useState("");
+
+  const filterTypes = (data) =>
+    data.filter((type) => type.toLowerCase().includes(filter.toLowerCase()));
+
   const handleOnClick = async (type) => {
     const queryDocuments = await query.filter((e) => e[2][1] === type);
     setDocuments(queryDocuments);
     history.push("/documents");
   };
 
-  const [filter, setFilter] = useState("");
-
-  const filterTypes = (data) =>
-    data.filter((type) => type.toLowerCase().includes(filter.toLowerCase()));
-
   return (
     <React.Fragment>
       <Title>{title}</Title>
       <div>
         <div className={classes.row}>
-          <SearchBar setFilter={setFilter} />
+          <SearchBar setFilter={setFilter} className={classes.searchBar} />
         </div>
         <div className={classes.row}>
           <button className={classes.btn}>

@@ -16,6 +16,14 @@ export const useStyles = makeStyles((theme) => ({
     webkitAppearance: "none",
     mozAppearance: "none",
     cursor: "pointer",
+    "&:focus": {
+      outline: "none",
+      border: "none",
+    },
+    "&:hover": {
+      color: "#3f51b5",
+      background: "white",
+    },
   },
   btn: {
     background: "transparent",
@@ -36,5 +44,9 @@ export const useStyles = makeStyles((theme) => ({
   alert: {
     color: "#3f51b5",
     padding: "0px 20px",
+  },
+  searchBar: {
+    width: "100%",
+    background: "violet",
   },
 }));
