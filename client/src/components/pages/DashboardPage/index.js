@@ -34,7 +34,7 @@ export const Dashboard = () => {
             </Grid>
             <Grid item xs={12} md={8} lg={8}>
               <Paper className={classes.paper}>
-                <SearchBar setFilter={setFilter} />
+                <SearchBar setFilter={setFilter} text={"e.g. Vitamin A"} />
               </Paper>
             </Grid>
             {(filterPatents(dataType1)?.length > 0 ||
