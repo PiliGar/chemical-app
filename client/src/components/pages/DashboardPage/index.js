@@ -7,6 +7,7 @@ import { SearchBar } from "../../ui/SearchBar/index";
 import { TypesTable } from "../../ui/Table/index";
 import { useStyles } from "./style";
 import { Header } from "../../ui/Header/index";
+import Title from "../../ui/Title";
 
 export const Dashboard = () => {
   const classes = useStyles();
@@ -28,6 +29,9 @@ export const Dashboard = () => {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+            <Grid item xs={12} md={12} lg={12}>
+              <Title>Find patents by components:</Title>
+            </Grid>
             <Grid item xs={12} md={8} lg={8}>
               <Paper className={classes.paper}>
                 <SearchBar setFilter={setFilter} />
@@ -37,7 +41,7 @@ export const Dashboard = () => {
               filterPatents(dataType2)?.length > 0) && (
               <Grid item xs={12} md={4} lg={4}>
                 <Paper className={classes.paper}>
-                  <p>Total Documents Found:{totalDocFound}</p>
+                  <p>Total:{totalDocFound}</p>
                 </Paper>
               </Grid>
             )}

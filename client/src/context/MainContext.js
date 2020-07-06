@@ -17,9 +17,6 @@ export const MainContextProvider = ({ children }) => {
   const [dataType1, setDataType1] = useState(arrayOfChemicalsType1);
   const [dataType2, setDataType2] = useState(arrayOfChemicalsType2);
   const [documents, setDocuments] = useState([]);
-  useEffect(() => {
-    console.log(`THIS IS DOC ${documents}`);
-  }, [documents]);
 
   return (
     <MainContext.Provider

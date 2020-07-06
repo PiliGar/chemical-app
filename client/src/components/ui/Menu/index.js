@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const MenuList = (
   <div>
-    <Link to="/" variant="primary">
+    <Link to="/" variant="primary" style={{ textDecoration: "none" }}>
       <ListItem>
         <ListItemIcon>
           <SearchIcon />
@@ -17,7 +17,7 @@ export const MenuList = (
       </ListItem>
     </Link>
 
-    <Link to="/documents" variant="primary">
+    <Link to="/documents" variant="primary" style={{ textDecoration: "none" }}>
       <ListItem button>
         <ListItemIcon>
           <AssignmentIcon />

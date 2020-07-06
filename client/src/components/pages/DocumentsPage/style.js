@@ -1,4 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import TableRow from "@material-ui/core/TableRow";
 
 const drawerWidth = 240;
 
@@ -76,7 +77,16 @@ export const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
   },
+  selector: {
+    padding: "8px 20px",
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column",
+  },
   fixedHeight: {
     height: 240,
+  },
+  table: {
+    minWidth: "100%",
   },
 }));
