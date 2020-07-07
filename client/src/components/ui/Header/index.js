@@ -66,7 +66,9 @@ export const Header = () => {
           </IconButton>
         </div>
         <Divider />
-        <List>{MenuList}</List>
+        <List>
+          <MenuList />
+        </List>
       </Drawer>
     </div>
   );

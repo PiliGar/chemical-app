@@ -11,17 +11,24 @@ import Title from "../../ui/Title";
 
 export const Dashboard = () => {
   const classes = useStyles();
-  const [filter, setFilter] = useState("Search...");
+  const [filter, setFilter] = useState();
   const { dataType1, dataType2 } = useContext(MainContext);
 
   const filterPatents = (data) =>
     data.filter((patent) =>
-      patent[2][1].toLowerCase().includes(filter.toLowerCase())
+      patent[2][1]
+        .toLowerCase()
+        .trim()
+        .split(" ")
+        .join("")
+        .includes(filter?.toLowerCase())
     );
 
   const totalDocFound =
-    filterPatents(dataType1).length + filterPatents(dataType2).length;
-
+    filterPatents(dataType1)?.length + filterPatents(dataType2)?.length;
+  console.log(filter);
+  console.log(filterPatents(dataType1)?.length);
+  console.log(filterPatents(dataType2)?.length);
   return (
     <div className={classes.root}>
       <Header />
@@ -37,16 +44,25 @@ export const Dashboard = () => {
                 <SearchBar setFilter={setFilter} text={"e.g. Vitamin A"} />
               </Paper>
             </Grid>
-            {(filterPatents(dataType1)?.length > 0 ||
-              filterPatents(dataType2)?.length > 0) && (
+
+            {filter && totalDocFound > 0 && (
               <Grid item xs={12} md={4} lg={4}>
                 <Paper className={classes.paper}>
                   <p>Total:{totalDocFound}</p>
                 </Paper>
               </Grid>
             )}
+
+            {filter && totalDocFound === 0 && (
+              <Grid item xs={12} md={4} lg={4}>
+                <Paper className={classes.paper}>
+                  <p>Sorry, not documents found.</p>
+                </Paper>
+              </Grid>
+            )}
+
             {/* Type 1 */}
-            {filterPatents(dataType1)?.length > 0 && (
+            {filter && filterPatents(dataType1)?.length > 0 && (
               <Grid item xs={12} md={6} lg={6}>
                 <Paper className={classes.paper}>
                   <TypesTable
@@ -57,7 +73,7 @@ export const Dashboard = () => {
               </Grid>
             )}
             {/* Type 2 */}
-            {filterPatents(dataType1)?.length > 0 && (
+            {filter && filterPatents(dataType2)?.length > 0 && (
               <Grid item xs={12} md={6} lg={6}>
                 <Paper className={classes.paper}>
                   <TypesTable

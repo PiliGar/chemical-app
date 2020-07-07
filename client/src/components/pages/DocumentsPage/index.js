@@ -17,7 +17,6 @@ export const Documents = (props) => {
   const { documents, dataAll } = useContext(MainContext);
 
   const [filter, setFilter] = useState("");
-
   const [docNum, setDocNum] = useState(10);
 
   const filterEntries = (data) =>
@@ -35,28 +34,29 @@ export const Documents = (props) => {
           <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
               {documents.length > 0 ? (
-                <Title>Search results:</Title>
+                <Title>Search results for "{documents[0][2][1]}":</Title>
               ) : (
                 <Title>All documents:</Title>
               )}
+            </Grid>
+
+            <Grid item xs={6} md={4} lg={4}>
+              <Paper className={classes.paper}>
+                <SearchBar setFilter={setFilter} />
+              </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={4}>
               <Paper className={classes.paper}>
                 <p>
                   {documents.length > 0
-                    ? `Total: ${documents.length}`
-                    : `Total: ${dataAll.length}`}
+                    ? `Total documents: ${documents.length}`
+                    : `Total documents: ${dataAll.length}`}
                 </p>
               </Paper>
             </Grid>
             <Grid item xs={6} md={4} lg={4}>
               <Paper className={classes.selector}>
                 <SelectInput setDocNum={setDocNum} />
-              </Paper>
-            </Grid>
-            <Grid item xs={6} md={4} lg={4}>
-              <Paper className={classes.paper}>
-                <SearchBar setFilter={setFilter} />
               </Paper>
             </Grid>
             <Grid item xs={12} md={12} lg={12}>
