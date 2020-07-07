@@ -17,6 +17,7 @@ export const MainContextProvider = ({ children }) => {
   const [dataType1, setDataType1] = useState(arrayOfChemicalsType1);
   const [dataType2, setDataType2] = useState(arrayOfChemicalsType2);
   const [documents, setDocuments] = useState([]);
+  const [list, setList] = useState([]);
 
   return (
     <MainContext.Provider
@@ -31,6 +32,8 @@ export const MainContextProvider = ({ children }) => {
         setDataType2,
         documents,
         setDocuments,
+        list,
+        setList,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-# chemical-app
+# 👩‍🔬chemical-app
 
 ### Challenge description
 
