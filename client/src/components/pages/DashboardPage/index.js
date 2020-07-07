@@ -26,9 +26,7 @@ export const Dashboard = () => {
 
   const totalDocFound =
     filterPatents(dataType1)?.length + filterPatents(dataType2)?.length;
-  console.log(filter);
-  console.log(filterPatents(dataType1)?.length);
-  console.log(filterPatents(dataType2)?.length);
+
   return (
     <div className={classes.root}>
       <Header />

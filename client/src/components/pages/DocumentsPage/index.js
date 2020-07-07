@@ -14,7 +14,7 @@ import Title from "../../ui/Title";
 
 export const Documents = (props) => {
   const classes = useStyles();
-  const { documents, dataAll } = useContext(MainContext);
+  const { documents, list, setList, dataAll } = useContext(MainContext);
 
   const [filter, setFilter] = useState("");
   const [docNum, setDocNum] = useState(10);
@@ -23,7 +23,9 @@ export const Documents = (props) => {
     data.filter((e) => e[1][1].toLowerCase().includes(filter.toLowerCase()));
 
   const entries =
-    documents.length > 0 ? filterEntries(documents) : filterEntries(dataAll);
+    documents.length > 0
+      ? filterEntries(documents).sort((a, b) => a[1][1].localeCompare(b[1][1]))
+      : filterEntries(dataAll).sort((a, b) => a[1][1].localeCompare(b[1][1]));
 
   return (
     <div className={classes.root}>
@@ -49,7 +51,7 @@ export const Documents = (props) => {
               <Paper className={classes.paper}>
                 <p>
                   {documents.length > 0
-                    ? `Total documents: ${documents.length}`
+                    ? `Total documents: ${entries.length}`
                     : `Total documents: ${dataAll.length}`}
                 </p>
               </Paper>
