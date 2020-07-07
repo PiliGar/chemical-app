@@ -37,7 +37,9 @@ export const EntriesList = withRouter(({ data, docNum, history }) => {
                     {i + 1}
                   </TableCell>
                   <TableCell align="left">{patent[0][1]}</TableCell>
-                  <TableCell align="left">{patent[1][1]}</TableCell>
+                  <TableCell align="left">
+                    {patent[1][1].toUpperCase()}
+                  </TableCell>
                   <TableCell align="right">
                     <a target="_blank" href={`${url}${patent[0][1]}`}>
                       <RemoveRedEye />

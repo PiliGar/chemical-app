@@ -19,6 +19,7 @@ export const SelectInput = ({ setDocNum }) => {
   useEffect(() => {
     setDocNum(entries);
   }, [entries]);
+
   return (
     <div>
       <FormControl className={classes.formControl}>
